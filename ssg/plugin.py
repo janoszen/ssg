@@ -1,8 +1,8 @@
 import abc
 from typing import List
 
-from filter import Filter
-from ssg import FileProcessor, FileSource
+from ssg.filter import Filter
+from ssg.ssg import FileProcessor, FileSource
 
 
 class Plugin(abc.ABC):

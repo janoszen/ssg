@@ -1,9 +1,8 @@
-import os
 from typing import List, Callable
 
-from filter import Filter
-from plugin import Plugin
-from ssg import FileSource
+from ssg.filter import Filter
+from ssg.plugin import Plugin
+from ssg.ssg import FileSource
 
 
 class InlineFileFilter(Filter):
