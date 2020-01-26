@@ -4,13 +4,14 @@ import pathlib
 import shutil
 from typing import AnyStr
 
-from ssg.file_source import FileSource
+from ssg.source import Source
 
 src_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "src")
 dist_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "dist")
 
+
 class FileProcessor:
-    def process(self, filename: str, file_source: FileSource):
+    def process(self, filename: str, file_source: Source):
         pass
 
 

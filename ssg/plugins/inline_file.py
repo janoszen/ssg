@@ -1,27 +1,27 @@
 from typing import List, Callable
 
-from ssg.file_source import FileSource
+from ssg.source import Source
 from ssg.filter import Filter
 from ssg.plugin import Plugin
 
 
 class InlineFileFilter(Filter):
-    file_source: FileSource
+    file_source: Source
 
-    def __init__(self, file_source: FileSource):
+    def __init__(self, file_source: Source):
         self.file_source = file_source
 
     def get_name(self) -> str:
         return "inline_file"
 
     def get_callable(self) -> Callable:
-        return lambda file: self.file_source.read(file)
+        return lambda file: self.file_source.read_file_as_string(file)
 
 
 class InlineFilePlugin(Plugin):
-    file_source: FileSource
+    file_source: Source
 
-    def __init__(self, file_source: FileSource):
+    def __init__(self, file_source: Source):
         self.file_source = file_source
 
     def get_template_filters(self) -> List[Filter]:
@@ -32,6 +32,5 @@ class InlineFilePlugin(Plugin):
         ]
 
 
-def create_plugin(file_source: FileSource):
+def create_plugin(file_source: Source):
     return InlineFilePlugin(file_source)
-

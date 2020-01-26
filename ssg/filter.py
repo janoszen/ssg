@@ -1,13 +1,7 @@
-import abc
-from typing import Callable
+class Filter:
+    def get_name(self):
+        raise NotImplementedError
 
-
-class Filter(abc.ABC):
-    @abc.abstractmethod
-    def get_name(self) -> str:
-        pass
-
-    @abc.abstractmethod
-    def get_callable(self) -> Callable:
-        pass
+    def get_callable(self):
+        raise NotImplementedError
 

@@ -1,11 +1,10 @@
-import abc
 from typing import List
 
 from ssg.filter import Filter
-from ssg.ssg import FileProcessor, FileSource
+from ssg.ssg import FileProcessor, Source
 
 
-class Plugin(abc.ABC):
+class Plugin:
     def get_template_filters(self) -> List[Filter]:
         return []
 
@@ -15,7 +14,7 @@ class Plugin(abc.ABC):
 
 def load_plugin(
         package_name: str,
-        file_source: FileSource
+        file_source: Source
 ) -> Plugin:
     package = __import__(package_name)
     if package.create_plugin:
