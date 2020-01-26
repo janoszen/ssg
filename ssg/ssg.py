@@ -4,20 +4,10 @@ import pathlib
 import shutil
 from typing import AnyStr
 
+from ssg.file_source import FileSource
+
 src_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "src")
 dist_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "dist")
-
-
-class FileSource(abc.ABC):
-    @abc.abstractmethod
-    def read(self, path: str) -> AnyStr:
-        """
-        Read a file specified by path from the file source and return it as a byte array.
-        :param path: the path of the file, starting with a / from the project directory.
-        :return: the contents of the file
-        """
-        pass
-
 
 class FileProcessor:
     def process(self, filename: str, file_source: FileSource):

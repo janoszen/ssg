@@ -1,8 +1,8 @@
 from typing import List, Callable
 
+from ssg.file_source import FileSource
 from ssg.filter import Filter
 from ssg.plugin import Plugin
-from ssg.ssg import FileSource
 
 
 class InlineFileFilter(Filter):
